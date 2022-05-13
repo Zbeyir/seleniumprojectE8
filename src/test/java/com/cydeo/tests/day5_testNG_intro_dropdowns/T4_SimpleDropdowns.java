@@ -29,7 +29,7 @@ public class T4_SimpleDropdowns {
     }
 
     @AfterMethod
-    public void setUp(){  // ve after i da ben acdim gürhan böyle yapmadi
+    public void setUp(){  // ve after i da ben acdim gürhan böyle yapmadi.
         driver.close();
     }
 
