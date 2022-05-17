@@ -117,6 +117,8 @@ public class DropdownPractices {
 
 }
 
+// BUNLAR 5. GÜN DEN KALAN TASK LAR
+
 /*
 TC #5: Selecting state from State dropdown and verifying result
 1. Open Chrome browser
