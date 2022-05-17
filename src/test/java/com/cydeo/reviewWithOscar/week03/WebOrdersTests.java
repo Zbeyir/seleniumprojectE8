@@ -53,12 +53,12 @@ after this step I can use findElements() method for multiple WebElements
          */
         //to locate checkAll button then click
         driver.findElement(By.linkText("Check All")).click();
-        List<WebElement> checkBoxes = driver.findElements(By.xpath("//input[@type='checkbox']")); /// buraya mesaj olarak olumsuzu nu yaziyoruz cünkü burasi false olura görükecek bu mesaj
-
+        List<WebElement> checkBoxes = driver.findElements(By.xpath("//input[@type='checkbox']"));
         for (WebElement eachCheckBox : checkBoxes) {
 
             // test NG comes with Assertion methods
-            Assert.assertTrue(eachCheckBox.isSelected(),"CheckBox IS NOT checked");
+            Assert.assertTrue(eachCheckBox.isSelected(),"CheckBox IS NOT checked"); // buraya mesaj olarak olumsuzu nu yaziyoruz cünkü burasi false olura görükecek bu mesaj
+
             // eachCheckBox.isSelected(); // return type boolean
         }
 
@@ -81,11 +81,40 @@ after this step I can use findElements() method for multiple WebElements
     @Test
     public void deletePersonTest(){
         System.out.println("Implementing step 3 and 4 Test Case 2");
+
+        /*
+        Locate the checkBox using the person's Name: Bob Feather
+    find with name(child)--> go to parent (whole row) --> down to td of checkbox
+    */
+   // one way ==> //td[.='Bob Feather']/../td[1]/input
+    // td[.='Bob Feather']/preceding-sibling::*/input
+
+        WebElement checkBox = driver.findElement(By.xpath("//td[.='Bob Feather']/../td[1]/input"));
+        checkBox.click(); // select the checkbox with click
+
+        // locate delete button and click
+        driver.findElement(By.id("ctl00_MainContent_btnDelete")).click();
+
+        // after we delete, we can all the names of the customers as a list, then verify that name is NOT in the list
+        // need to get all the names from the table
+        // common locator: //tr//td[2]
+
+        List <WebElement> namesElements = (List<WebElement>) driver.findElement(By.xpath("//tr//td[2]"));
+
+        for (WebElement namesElement : namesElements) {
+            System.out.println("namesElement.getText() = " + namesElement.getText());
+        }
+
+
     }
 
 
 }
-
+/*
+BURADA BIR YANLISLIK VAR ANLAMADIM
+DERSI 1.27.. BIRAKTIM
+SON 14 DAKIKASI NI IZLEMEDIM
+ */
 
 /*
 Test Case 1 :  Verify CheckBox, CheckAll and UncheckAll Buttons
