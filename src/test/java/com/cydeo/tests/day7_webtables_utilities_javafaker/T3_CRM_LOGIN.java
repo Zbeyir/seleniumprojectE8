@@ -81,6 +81,25 @@ public class T3_CRM_LOGIN {
 
     }
 
+    @Test
+    public void crm_login_test_3(){
+
+        //2. Go to : http://login1.nextbasecrm.com/
+        driver.get("https://login1.nextbasecrm.com/");
+
+
+        //Calling my utility method to login helpdesk1
+        CRM_Utilities.crm_login(driver, "helpdesk2@cybertekschool.com", "UserUser" );
+
+
+        //6. Verify title is as expected:
+        //Expected: Portal
+        BrowserUtils.sleep(2);
+        BrowserUtils.verifyTitle(driver, "(2) Portal");
+        BrowserUtils.sleep(2);
+    }
+
+
 }
 
 //###-----IKI TEST AYNI ANDA GECMEDI TEK TEK CALISTIRDIM ÖYLE GECTI----#######
@@ -101,6 +120,6 @@ Expected: Portal
 
          USERNAME             PASSWORD
 helpdesk1@cybertekschool.com  UserUser
-Helpdesk2@cybertekschool.com  UserUser
+helpdesk2@cybertekschool.com  UserUser
 
  */
