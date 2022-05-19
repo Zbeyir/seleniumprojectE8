@@ -35,4 +35,56 @@ public class CRM_Utilities {
 
     }
 
+
+
+
+    public static void crm_login(WebDriver driver, String username, String password){
+
+
+        //3. Enter valid username
+        WebElement inputUsername = driver.findElement(By.xpath("//input[@name='USER_LOGIN']"));
+        inputUsername.sendKeys(username);
+
+        //helpdesk1@cybertekschool.com  UserUser
+        //Helpdesk2@cybertekschool.com  UserUser
+
+        //4. Enter valid password
+        WebElement inputPassword = driver.findElement(By.xpath("//input[@name='USER_PASSWORD']"));
+        inputPassword.sendKeys(password);
+
+
+        //5. Click to `Log In` button
+        WebElement logInButton = driver.findElement(By.xpath("//input[@value='Log In']"));
+        logInButton.click();
+
+
+
+
+    }
+
+
+
 }
+
+
+
+/*
+This method should have at least 2 overloaded versions.
+
+Method #1 info:
+• Name: login_crm()
+• Return type: void
+• Arg1: WebDriver
+
+
+Method #2 info:
+• Name: login_crm()
+• Return type: void
+• Arg1: WebDriver
+• Arg2: String username
+• Arg3: String password
+
+
+
+
+ */
