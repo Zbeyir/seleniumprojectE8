@@ -22,7 +22,7 @@ public class T3_CRM_LOGIN {
 
         driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 
     @AfterMethod
@@ -45,9 +45,12 @@ public class T3_CRM_LOGIN {
         //6. Verify title is as expected:
         //Expected: Portal
 
+        BrowserUtils.sleep(2);
         BrowserUtils.verifyTitle(driver, "Portal");  // bu method u gürhan ile utilities class ta olusturduk ve oni cgirdik
+        BrowserUtils.sleep(2);
 
     }
+
 
 
     @Test
@@ -77,9 +80,12 @@ public class T3_CRM_LOGIN {
         //6. Verify title is as expected:
         //Expected: Portal
 
+        BrowserUtils.sleep(2);
         BrowserUtils.verifyTitle(driver, "Portal");  // bu method u gürhan ile utilities class ta olusturduk ve oni cgirdik
+        BrowserUtils.sleep(2);
 
     }
+
 
     @Test
     public void crm_login_test_3(){
@@ -95,7 +101,7 @@ public class T3_CRM_LOGIN {
         //6. Verify title is as expected:
         //Expected: Portal
         BrowserUtils.sleep(2);
-        BrowserUtils.verifyTitle(driver, "(2) Portal");
+        BrowserUtils.verifyTitle(driver, "Portal");
         BrowserUtils.sleep(2);
     }
 
