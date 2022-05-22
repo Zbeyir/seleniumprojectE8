@@ -1,6 +1,6 @@
 package com.cydeo.tests.day6_alerts_iframes_windows;
 
-import com.cydeo.utilities.HandleWait;
+import com.cydeo.utilities.ReviewUtils;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -41,13 +41,13 @@ public class T1_Alert_Practice {
         //TC #1: Information alert practice
 
         //3. Click to “Click for JS Alert” button
-        HandleWait.staticWait(2);
+        ReviewUtils.staticWait(2);
 
         // ==>  //button[.='Click for JS Alert']  ==> burhanin ki daha kisa
         WebElement clickForJSAlertButton = driver.findElement(By.xpath("//button[@onclick='jsAlert()']"));
         clickForJSAlertButton.click();
 
-        HandleWait.staticWait(2);
+        ReviewUtils.staticWait(2);
 
         //To be able to click to Alert OK button we need to switch driver's focus to Alert itself.
         Alert alert = driver.switchTo().alert(); // burada da karsimizi 2 tane Alert cikiyor biz selenium olani seciyourz
@@ -71,7 +71,7 @@ public class T1_Alert_Practice {
 
 
 
-        HandleWait.staticWait(2);
+        ReviewUtils.staticWait(2);
 
     }
 

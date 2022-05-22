@@ -1,6 +1,6 @@
 package com.cydeo.tests.day4_findElemnets_checkboxes_radio;
 
-import com.cydeo.utilities.HandleWait;
+import com.cydeo.utilities.ReviewUtils;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -34,13 +34,13 @@ public class T5_checkboxes {
         System.out.println("checkbox2.isSelected(), expecting true = " + checkbox2.isSelected());
 
         //4. Click checkbox #1 to select it.
-        HandleWait.staticWait(2);
+        ReviewUtils.staticWait(2);
         checkbox1.click();
 
         //5. Click checkbox #2 to deselect it.
-        HandleWait.staticWait(2);
+        ReviewUtils.staticWait(2);
         checkbox2.click();
-        HandleWait.staticWait(2);
+        ReviewUtils.staticWait(2);
 
         //6. Confirm checkbox #1 is SELECTED.
         System.out.println("checkbox1.isSelected(), expecting true = " + checkbox1.isSelected());

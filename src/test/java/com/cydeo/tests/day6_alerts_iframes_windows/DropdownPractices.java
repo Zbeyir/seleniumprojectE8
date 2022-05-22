@@ -1,6 +1,6 @@
 package com.cydeo.tests.day6_alerts_iframes_windows;
 
-import com.cydeo.utilities.HandleWait;
+import com.cydeo.utilities.ReviewUtils;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -40,17 +40,17 @@ public class DropdownPractices {
         Select stateDropdown = new Select(driver.findElement(By.xpath("//select[@id='state']")));
 
         //3. Select Illinois
-        HandleWait.staticWait(2);
+        ReviewUtils.staticWait(2);
         stateDropdown.selectByVisibleText("Illinois");
-        HandleWait.staticWait(2);
+        ReviewUtils.staticWait(2);
 
         //4. Select Virginia
         stateDropdown.selectByValue("VA");
-        HandleWait.staticWait(2);
+        ReviewUtils.staticWait(2);
 
         //5. Select California
         stateDropdown.selectByIndex(5);
-        HandleWait.staticWait(2);
+        ReviewUtils.staticWait(2);
 
         //Use all Select options. (visible text, value, index)
         // evet bu görevlerin 3 nü de yaptik
@@ -84,17 +84,17 @@ public class DropdownPractices {
         //3. Select “December 1st, 1923” and verify it is selected.
 
         //Select year using  : visible text
-        HandleWait.staticWait(2);
+        ReviewUtils.staticWait(2);
         yearDropdown.selectByVisibleText("1923");
 
         //Select month using   : value attribute
-        HandleWait.staticWait(2);
+        ReviewUtils.staticWait(2);
         monthDropdown.selectByValue("11");
 
         //Select day using : index number
-        HandleWait.staticWait(2);
+        ReviewUtils.staticWait(2);
         dayDropdown.selectByIndex(0);
-        HandleWait.staticWait(2);
+        ReviewUtils.staticWait(2);
 
         //creating expected values
         String expectedYear = "1923";

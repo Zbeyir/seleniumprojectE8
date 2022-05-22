@@ -1,6 +1,6 @@
 package com.cydeo.tests.day5_testNG_intro_dropdowns;
 
-import com.cydeo.utilities.HandleWait;
+import com.cydeo.utilities.ReviewUtils;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -29,9 +29,9 @@ public class T1_StaleElementRefEx {
         //button[@onclick='addElement()'] ==> böylede kisa yolu var copy paste yapiyorsun sayfadan
         WebElement addElementBtn = driver.findElement(By.xpath("//button[.='Add Element']"));
 
-        HandleWait.staticWait(2);
+        ReviewUtils.staticWait(2);
         addElementBtn.click();
-        HandleWait.staticWait(2);
+        ReviewUtils.staticWait(2);
 
 
         //4. Verify “Delete” button is displayed after clicking.
@@ -42,7 +42,7 @@ public class T1_StaleElementRefEx {
         //5. Click to “Delete” button.
         deleteElementBtn.click();
 
-        HandleWait.staticWait(2);
+        ReviewUtils.staticWait(2);
 
         //6. Verify “Delete” button is NOT displayed after clicking.
 

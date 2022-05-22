@@ -1,6 +1,6 @@
 package com.cydeo.tests.day5_testNG_intro_dropdowns;
 
-import com.cydeo.utilities.HandleWait;
+import com.cydeo.utilities.ReviewUtils;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,7 +23,7 @@ public class T2_RadioButton {
         //2. Go to https://practice.cydeo.com/radio_buttons
         driver.get("https://practice.cydeo.com/radio_buttons");
 
-        HandleWait.staticWait(2);
+        ReviewUtils.staticWait(2);
 
         //3. Click to “Hockey” radio button
         //  ==> ben burada //label[.='Hockey']----> bunu yazdim o zaman false aldim
@@ -31,7 +31,7 @@ public class T2_RadioButton {
         WebElement elementHockeyBtn = driver.findElement(By.xpath("//input[@id='hockey']"));
         elementHockeyBtn.click();
 
-        HandleWait.staticWait(2);
+        ReviewUtils.staticWait(2);
 
         //4. Verify “Hockey” radio button is selected after clicking.
         if (elementHockeyBtn.isSelected()) {

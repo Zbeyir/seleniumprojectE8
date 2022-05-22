@@ -1,6 +1,6 @@
 package com.cydeo.tests.day6_alerts_iframes_windows;
 
-import com.cydeo.utilities.HandleWait;
+import com.cydeo.utilities.ReviewUtils;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -61,13 +61,13 @@ public class T5_Windows_Practice {
 
         System.out.println("Title before click : " + actualTitle);
 
-        HandleWait.staticWait(2);
+        ReviewUtils.staticWait(2);
 
         //5. Click to: “Click Here” link
         WebElement clickHere = driver.findElement(By.linkText("Click Here")); // bu By.linkText yöntemi cok hosuma gitti--direkt oradaki text i kopyaliyorsun
         clickHere.click();
 
-        HandleWait.staticWait(2);
+        ReviewUtils.staticWait(2);
 
         //6. Switch to new Window.
         // burasi yeni ve ÖNEMLI

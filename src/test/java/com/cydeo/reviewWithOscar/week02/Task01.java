@@ -1,6 +1,6 @@
 package com.cydeo.reviewWithOscar.week02;
 
-import com.cydeo.utilities.HandleWait;
+import com.cydeo.utilities.ReviewUtils;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,7 +22,7 @@ public class Task01 {
 
 
         //        then click on "forgot_password" link
-        HandleWait.staticWait(1);//==> bunu osacrla beraber actik utilities package te
+        ReviewUtils.staticWait(1);//==> bunu osacrla beraber actik utilities package te
         // we are using Thread.sleep in more cleaner syntax
 
         WebElement forgotPasswordLink  = driver.findElement(By.linkText("Forgot Password"));
@@ -30,7 +30,7 @@ public class Task01 {
 
 
         //        enter any email
-        HandleWait.staticWait(1);
+        ReviewUtils.staticWait(1);
 
         WebElement emailBox = driver.findElement(By.name("email"));
 
@@ -77,7 +77,7 @@ public class Task01 {
         String expectedMessage = "Your e-mail's been sent!";
         String actualMessage = driver.findElement(By.name("confirmation_message")).getText();
 
-        HandleWait.staticWait(3);
+        ReviewUtils.staticWait(3);
 
 
         if (expectedMessage.equals(actualMessage)){

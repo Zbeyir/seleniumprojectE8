@@ -1,6 +1,6 @@
 package com.cydeo.reviewWithOscar.week02;
 
-import com.cydeo.utilities.HandleWait;
+import com.cydeo.utilities.ReviewUtils;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -44,7 +44,7 @@ public class Task02 {
 
 
 
-        HandleWait.staticWait(2);
+        ReviewUtils.staticWait(2);
         driver.close();
 
     }

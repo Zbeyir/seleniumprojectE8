@@ -1,6 +1,6 @@
 package com.cydeo.tests.day7_webtables_utilities_javafaker;
 
-import com.cydeo.utilities.HandleWait;
+import com.cydeo.utilities.ReviewUtils;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -39,11 +39,11 @@ public class T1_WindowHandling {
 
         //3. Copy paste the lines from below into your class
         ((JavascriptExecutor) driver).executeScript("window.open('http://google.com','_blank');");
-        HandleWait.staticWait(3);
+        ReviewUtils.staticWait(3);
         ((JavascriptExecutor) driver).executeScript("window.open('http://etsy.com','_blank');");
-        HandleWait.staticWait(3);
+        ReviewUtils.staticWait(3);
         ((JavascriptExecutor) driver).executeScript("window.open('http://facebook.com','_blank');");
-        HandleWait.staticWait(3);
+        ReviewUtils.staticWait(3);
 
 
         //4. Create a logic to switch to the tab where Etsy.com is open

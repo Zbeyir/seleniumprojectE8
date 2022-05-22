@@ -1,6 +1,6 @@
 package com.cydeo.reviewWithOscar.week02;
 
-import com.cydeo.utilities.HandleWait;
+import com.cydeo.utilities.ReviewUtils;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,7 +24,7 @@ public class task03HardImportetForMe {
        // laptop.click();
         driver.findElement(By.partialLinkText("Laptops")).click();
 
-        HandleWait.staticWait(1);
+        ReviewUtils.staticWait(1);
         /*
         normalde bende assagi da ki gibi yaziyordum ama girmiyordu hata veriyordu
         HandleWait.staticWait(1);
@@ -39,7 +39,7 @@ public class task03HardImportetForMe {
 
         int expectedPrice = 790;
 
-        HandleWait.staticWait(3);
+        ReviewUtils.staticWait(3);
 
         String priceText = driver.findElement(By.tagName("h3")).getText();
 
@@ -63,7 +63,7 @@ public class task03HardImportetForMe {
         }
 
 
-        HandleWait.staticWait(3);
+        ReviewUtils.staticWait(3);
         driver.close();
 
 

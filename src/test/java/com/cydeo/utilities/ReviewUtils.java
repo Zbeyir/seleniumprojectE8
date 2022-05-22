@@ -1,8 +1,12 @@
 package com.cydeo.utilities;
 
 // bu sinifi Oscar ile actik Gürhan ile degil 2. hafta.
+// 4. hafta da adini degistirdik gürhan nin kilerle karismasin diye
 
-public class HandleWait {
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class ReviewUtils {
 
     public static void staticWait(int seconds) {
         try {
@@ -13,8 +17,9 @@ public class HandleWait {
 
 
         }
-    }
-/*
+
+
+        /*
 PIQ: Which exception you get the most?
         - No Such Element exception:
             * Your locator is wrong
@@ -28,3 +33,18 @@ PIQ: Which exception you get the most?
             yazinca hata veriyordu sign v.s. seyler yapmak gerekiyordu onunla ugrasmamak icin yaptik
 
  */
+
+
+
+    // will be used in demoblaze application, to navigate to different links at the page
+    // will click on different elements/links at the page
+    public static void getLink(WebDriver driver , String link){
+        driver.findElement(By.linkText(link)).click();
+        staticWait(1); // bu nu da yukaridaki method dan cagirik
+
+    }
+
+
+
+    }
+
