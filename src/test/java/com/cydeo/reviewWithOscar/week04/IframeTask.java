@@ -1,7 +1,10 @@
 package com.cydeo.reviewWithOscar.week04;
 
+import com.cydeo.utilities.ReviewUtils;
 import com.cydeo.utilities.WebDriverFactory;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
@@ -29,6 +32,16 @@ public class IframeTask {
 
         driver.get("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_ev_ondblclick2");
 
+        //we need to change frame
+        driver.switchTo().frame("iframeResult");
+        // bu yukaridaki iframe ile ilgilenmemizi sagliyor, bunu yazmadan iframe lerde hata veriyor
+
+        ReviewUtils.staticWait(2);
+        WebElement demoElement = driver.findElement(By.id("demo"));
+
+        String demoElementText = demoElement.getText();
+
+        driver.close();
 
 
     }
