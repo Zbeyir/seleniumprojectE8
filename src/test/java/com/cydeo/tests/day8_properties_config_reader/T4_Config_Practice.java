@@ -21,8 +21,10 @@ public class T4_Config_Practice {
     public void setUpMethod() {
 
        // We are getting the browserType dynamically from our configuration.properties file
-        String browsertype = ConfigurationReader.getProperty("browser");
-        driver = WebDriverFactory.getDriver(browsertype);
+        String browserType = ConfigurationReader.getProperty("browser");
+        //bu yukari da ki ni utilities package tan cagirdik (ConfigurationReader) class
+        // bu yukarida parentez in icini de (browser) i eksik (hatali) yazarsak (NullPointerException) aliriz
+        driver = WebDriverFactory.getDriver(browserType);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.get("https://google.com ");
@@ -43,13 +45,21 @@ public class T4_Config_Practice {
 
         ReviewUtils.staticWait(2);
 
-        googleSearchBox.sendKeys("apple" + Keys.ENTER);
+      //  googleSearchBox.sendKeys("apple" + Keys.ENTER);
+        googleSearchBox.sendKeys(ConfigurationReader.getProperty("searchValue") + Keys.ENTER);
+        //BU YUKARIYI DA hard cod a cevirdik---ve yine utilities package muracte ettik ve yine
+        // ve hersey den önce configuration.properties file da yeni searchValue atadik
 
         ReviewUtils.staticWait(2);
 
         //4- Verify title:
         //Expected: apple - Google Search
-        String expectedTitle ="apple - Google'da Ara";
+       // String expectedTitle ="apple - Google'da Ara";
+        String expectedTitle =ConfigurationReader.getProperty("searchValue")+" - Google'da Ara";
+        // burayi da hard codding yaptik (yani dinamik yaptik arattigimiz sey degisince otamatik olarak degisecek )
+        //--> configuration.properties file da yeni searchValue atamistik... yani bura da ki value ne yazarsak sonuc ona göre cikacak
+        //tesla yaz tesla cikacak , baska birsey yaz baska birsey cikacak
+
         String actualTitle = driver.getTitle();
 
         Assert.assertEquals(actualTitle, expectedTitle);
