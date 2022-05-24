@@ -19,6 +19,11 @@ public class ReadingProperties {
 
         //3- Load the properties object using FileInputStream object
         properties.load(file);
+        /*
+        2. adim da ve 3. adim da hata veriyor yani alti kirmizi oluyor ,
+        ama biz 3. adimda bu sorunla ilgilendik.
+        Cünkü; 3. adimda ki sorun 2. adimda ki sorunun da parent class i
+         */
 
         //4- Use "properties" object to read value
         System.out.println("properties.getProperty(\"browser\") = " + properties.getProperty("browser"));
