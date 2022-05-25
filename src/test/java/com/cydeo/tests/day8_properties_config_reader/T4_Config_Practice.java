@@ -27,7 +27,7 @@ public class T4_Config_Practice {
         driver = WebDriverFactory.getDriver(browserType);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.get("https://google.com ");
+        driver.get("https://google.com");
     }
 
     @AfterMethod
