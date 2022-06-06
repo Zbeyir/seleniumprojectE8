@@ -40,6 +40,18 @@ public class Driver {
              */
 
             String browserType = ConfigurationReader.getProperty("browser");
+            /*
+             bu yukarida ki nin karsiligini configuratio.properties de olusturduk
+             oraya gidip karsiligini bulup geliyor haci zrolama fazla anladin sen
+             buraya sadece "browser" yaziyoruz
+             cünkü configuratio.properties 'de karsiligi ne ise onu bulup gelecek cannnneeeimmm
+             --sonra chrome yazili ise karsisinda;
+                    assagida ki 1. case bulacak ve onun icine girecek orada ki görevleri yerine getirecek
+            ama Driver ' i bundan sonra her cagirdigimizda bu döngügü takip  etmiyecek
+            cünkü artik (Driver != null) yani artik direkt return yapacak ilk belirlenmis driver 'i cagiracak
+                   cünkü artik browser chrome olarak tanindi
+
+             */
 
             /*
             Depending on the browserType that will be return from configuration.properties file
