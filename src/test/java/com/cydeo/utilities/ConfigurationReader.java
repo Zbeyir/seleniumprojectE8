@@ -33,3 +33,8 @@ public class ConfigurationReader {
     }
 
 }
+    /*
+    burasi configurations.properties 'i okuyor ve orada denileni yapiyor
+    ama biz configurations.properties2 ' yi acarsak
+    o zaman  ConfigurationReader2 ' yi kurmaliyiz
+    */

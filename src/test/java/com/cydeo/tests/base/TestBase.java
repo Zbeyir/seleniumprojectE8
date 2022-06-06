@@ -25,6 +25,12 @@ public abstract class TestBase {
         driver.quit();
     }
 
+    /*
+    bu sinifi 9. gün Grühan ile birlikte olusturduk
+   day9 'da TestMe class 'da var denemesi git bak
+   bura utilities class degil, aksine tüm Test Case lerin parent 'i
+     */
 
 
 }
+
