@@ -46,6 +46,16 @@ PIQ: Which exception you get the most?
 
     }
 
+    // ###--Singlton_1
+    // 5. hafta yaptik oscar ile son dakikalar
+    // bu yukari da kinin singlton ile yapilmisi
+    // Yani Driver cagirdik buraya ayri bir utilities class , ve onu Gürhan ile yapmistik hatirla haci
+    public static void getLink( String link){
+        Driver.getDriver().findElement(By.partialLinkText(link)).click();
+        staticWait(1);
+
+    }
+
 
 
     // Bunu Oscar ile 5. hafta yaptik
@@ -77,6 +87,29 @@ PIQ: Which exception you get the most?
      */
 
 
+    // ###--Singlton_2
+    // 5. hafta yaptik oscar ile son dakikalar
+    // bu yukari da kinin singlton ile yapilmisi
+    // Yani Driver cagirdik buraya ayri bir utilities class , ve onu Gürhan ile yapmistik hatirla haci
+    public static double addProduct( String category, String product){
+        getLink( category); // click on category
+        getLink( product);  // click on category
+
+
+        // Let's get product's price
+        String priceText = Driver.getDriver().findElement(By.tagName("h3")).getText(); // $790
+        double price = Double.parseDouble(priceText.substring(1,4));   // 790
+
+
+
+        getLink( "Add to cart");
+        Alert alert = Driver.getDriver().switchTo().alert();
+        alert.accept();
+
+        return price;
+    }
+
+
     // Bunu Oscar ile 5. hafta yaptik
     public static void fillForm(WebDriver driver){
 
@@ -102,6 +135,32 @@ yani concatenation yaptik, String 'ten hatirla haci
 
 
 
+
+    // ###--Singlton_3
+    // 5. hafta yaptik oscar ile son dakikalar
+    // bu yukari da kinin singlton ile yapilmisi
+    // Yani Driver cagirdik buraya ayri bir utilities class , ve onu Gürhan ile yapmistik hatirla haci
+    public static void fillForm(){
+
+        Faker faker = new Faker();
+        Driver.getDriver().findElement(By.id("name")).sendKeys(faker.name().firstName());
+        Driver.getDriver().findElement(By.id("country")).sendKeys(faker.country().name());
+        Driver.getDriver().findElement(By.id("city")).sendKeys(faker.address().city());
+        Driver.getDriver().findElement(By.id("card")).sendKeys(faker.finance().creditCard());
+        Driver.getDriver().findElement(By.id("month")).sendKeys(""+faker.number().numberBetween(1,12));
+        Driver.getDriver().findElement(By.id("year")).sendKeys(""+faker.number().numberBetween(2022,2032));
+        Driver.getDriver().findElement(By.xpath("//button[.='Purchase']")).click();
+        staticWait(3);
+
+    }
+
+    /*
+    YUKARI DA 3 method u birde Singlton ile yaptik aradaki fark
+            en yukarida ki paranetez icine (WebDriver driver) yazmiyoruz
+                 driver.findElement --> yerine
+                        Driver.getDriver().findElement --> Yaziyoruz
+####!!!--- ve bunu week5 de alistirmasini yaptik ---> TestCaseWithSingleton class ' da
+     */
 
 
 
