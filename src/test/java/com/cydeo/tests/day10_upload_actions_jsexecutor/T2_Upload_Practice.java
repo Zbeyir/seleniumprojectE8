@@ -19,12 +19,15 @@ public class T2_Upload_Practice {
         String path = "/Users/admin/Desktop/SDET EU_8/HTML Class/cybertruck.jpg";
         // bu yukaridaki ni resmin üstüne gidip option (alt) tusunu basip kopyalayip buraya yapistirdik
 
+
         //3. Upload the file.
         WebElement fileUpload = Driver.getDriver().findElement(By.id("file-upload"));
 
         BrowserUtils.sleep(3);
         //fileUpload.click();  // burada bu yöntemi kullanamiyoruz
         fileUpload.sendKeys(path);
+        // cünkü burada ayri bir sayfa cikiyor bilgisayar ile alakali web sayfasi ile alakali degil
+        // ve bu sayfa yi sadece selenium ile halledemiyoruz onun icin bu yukarida ki yöntemi kullaniyoruz
 
 
         WebElement uploadButton = Driver.getDriver().findElement(By.id("file-submit"));
