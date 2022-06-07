@@ -44,9 +44,24 @@ public class ActionsPractices {
 
 
         BrowserUtils.sleep(3);
-        Driver.getDriver().close();
+
+        Driver.closeDriver();
+
+        /*
+        bu yukari da ki methofd u kurduk cünkü;
+                Driver.getDriver().close();
+                     Driver.getDriver().quit();
+        bu ikisin den biri ile cikis yaptigimiz da
+        ve tekrar yeni test 'e giris yapmak istedigimiz 'de hata veriyordu
+         */
 
 
+    }
+    @Test
+    public void test2(){
+        Driver.getDriver().get(" https://practice.cydeo.com/");
+
+        Driver.closeDriver();
     }
 }
 
