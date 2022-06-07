@@ -15,10 +15,10 @@ public class ReviewUtils {
             Thread.sleep(seconds * 1000);
         } catch (Exception e) {
 
-           }
-
-
         }
+
+
+    }
 
 
         /*
@@ -37,10 +37,9 @@ PIQ: Which exception you get the most?
  */
 
 
-
     // will be used in demoblaze application, to navigate to different links at the page
     // will click on different elements/links at the page
-    public static void getLink(WebDriver driver , String link){
+    public static void getLink(WebDriver driver, String link) {
         driver.findElement(By.partialLinkText(link)).click();
         staticWait(1); // bu nu da yukaridaki method dan cagirik
 
@@ -50,23 +49,22 @@ PIQ: Which exception you get the most?
     // 5. hafta yaptik oscar ile son dakikalar
     // bu yukari da kinin singlton ile yapilmisi
     // Yani Driver cagirdik buraya ayri bir utilities class , ve onu Gürhan ile yapmistik hatirla haci
-    public static void getLink( String link){
+    public static void getLink(String link) {
         Driver.getDriver().findElement(By.partialLinkText(link)).click();
         staticWait(1);
 
     }
 
 
-
     // Bunu Oscar ile 5. hafta yaptik
-    public static double addProduct(WebDriver driver, String category, String product){
+    public static double addProduct(WebDriver driver, String category, String product) {
         getLink(driver, category); // click on category
         getLink(driver, product);  // click on category
 
 
         // Let's get product's price
         String priceText = driver.findElement(By.tagName("h3")).getText(); // $790
-        double price = Double.parseDouble(priceText.substring(1,4));   // 790
+        double price = Double.parseDouble(priceText.substring(1, 4));   // 790
 
         /*
         bu yukarida sonucu bie==> $790 böyle veriyor ama biz
@@ -91,18 +89,17 @@ PIQ: Which exception you get the most?
     // 5. hafta yaptik oscar ile son dakikalar
     // bu yukari da kinin singlton ile yapilmisi
     // Yani Driver cagirdik buraya ayri bir utilities class , ve onu Gürhan ile yapmistik hatirla haci
-    public static double addProduct( String category, String product){
-        getLink( category); // click on category
-        getLink( product);  // click on category
+    public static double addProduct(String category, String product) {
+        getLink(category); // click on category
+        getLink(product);  // click on category
 
 
         // Let's get product's price
         String priceText = Driver.getDriver().findElement(By.tagName("h3")).getText(); // $790
-        double price = Double.parseDouble(priceText.substring(1,4));   // 790
+        double price = Double.parseDouble(priceText.substring(1, 4));   // 790
 
 
-
-        getLink( "Add to cart");
+        getLink("Add to cart");
         Alert alert = Driver.getDriver().switchTo().alert();
         alert.accept();
 
@@ -111,15 +108,15 @@ PIQ: Which exception you get the most?
 
 
     // Bunu Oscar ile 5. hafta yaptik
-    public static void fillForm(WebDriver driver){
+    public static void fillForm(WebDriver driver) {
 
         Faker faker = new Faker();
         driver.findElement(By.id("name")).sendKeys(faker.name().firstName());
         driver.findElement(By.id("country")).sendKeys(faker.country().name());
         driver.findElement(By.id("city")).sendKeys(faker.address().city());
         driver.findElement(By.id("card")).sendKeys(faker.finance().creditCard());
-        driver.findElement(By.id("month")).sendKeys(""+faker.number().numberBetween(1,12));
-        driver.findElement(By.id("year")).sendKeys(""+faker.number().numberBetween(2022,2032));
+        driver.findElement(By.id("month")).sendKeys("" + faker.number().numberBetween(1, 12));
+        driver.findElement(By.id("year")).sendKeys("" + faker.number().numberBetween(2022, 2032));
         driver.findElement(By.xpath("//button[.='Purchase']")).click();
         staticWait(3);
 
@@ -134,21 +131,19 @@ yani concatenation yaptik, String 'ten hatirla haci
  */
 
 
-
-
     // ###--Singlton_3
     // 5. hafta yaptik oscar ile son dakikalar
     // bu yukari da kinin singlton ile yapilmisi
     // Yani Driver cagirdik buraya ayri bir utilities class , ve onu Gürhan ile yapmistik hatirla haci
-    public static void fillForm(){
+    public static void fillForm() {
 
         Faker faker = new Faker();
         Driver.getDriver().findElement(By.id("name")).sendKeys(faker.name().firstName());
         Driver.getDriver().findElement(By.id("country")).sendKeys(faker.country().name());
         Driver.getDriver().findElement(By.id("city")).sendKeys(faker.address().city());
         Driver.getDriver().findElement(By.id("card")).sendKeys(faker.finance().creditCard());
-        Driver.getDriver().findElement(By.id("month")).sendKeys(""+faker.number().numberBetween(1,12));
-        Driver.getDriver().findElement(By.id("year")).sendKeys(""+faker.number().numberBetween(2022,2032));
+        Driver.getDriver().findElement(By.id("month")).sendKeys("" + faker.number().numberBetween(1, 12));
+        Driver.getDriver().findElement(By.id("year")).sendKeys("" + faker.number().numberBetween(2022, 2032));
         Driver.getDriver().findElement(By.xpath("//button[.='Purchase']")).click();
         staticWait(3);
 
@@ -163,8 +158,25 @@ yani concatenation yaptik, String 'ten hatirla haci
      */
 
 
+    // buna Oscar ile 5.hafta avengers saatinde yaptik
+    public static double removeProduct(String product) {
+        // locator : //td[.='Samsung galaxy s6']/../td[4]/a  // normale locater bu ama biz onu dinamik hale cevirdik assagida
+        String locatorDelete = "//td[.='" + product + "']/../td[4]/a"; // Dynamic locator that works with product names
 
+        String locatorPrice = "//td[.='" + product + "']/../td[3]";
 
+        // get the price of deleted item
+        String priceText = Driver.getDriver().findElement(By.xpath(locatorPrice)).getText();
+        // bu yukariyi yazdik cünkü burasi string ve bize double lazim
 
+        double deletedItemPrice = Double.parseDouble(priceText); // ve burada da double cevirdik silincegimiz ürünün price ni
+
+        Driver.getDriver().findElement(By.xpath(locatorDelete)).click();
+        staticWait(3);
+
+        return deletedItemPrice;
     }
+
+
+}
 
