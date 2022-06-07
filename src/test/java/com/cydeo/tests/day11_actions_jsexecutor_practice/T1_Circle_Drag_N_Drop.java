@@ -28,6 +28,7 @@ public class T1_Circle_Drag_N_Drop {
         artik selenium kendisi ilgilencek
          */
 
+
         BrowserUtils.sleep(3);
 
         //Locate small and big circles to be able to drag them around
@@ -36,7 +37,12 @@ public class T1_Circle_Drag_N_Drop {
 
         //2. Drag and drop the small circle to bigger circle.
         Actions actions = new Actions(Driver.getDriver());
-        actions.dragAndDrop(smallCircle, bigCircle).perform();
+        //actions.dragAndDrop(smallCircle, bigCircle).perform(); //another way
+        actions.clickAndHold(smallCircle)
+                .pause(3)
+                .moveToElement(bigCircle)
+                .pause(3)
+                .release().perform();
 
 
         //3. Assert:
