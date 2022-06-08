@@ -15,7 +15,7 @@ public class LibraryLoginPage {
         initElements method will create connection in between the current
         driver session (instance) and the object of the current class.
          */
-        PageFactory.initElements(Driver.getDriver(), this);
+        PageFactory.initElements(Driver.getDriver(), this); // bunu silersek Test class ' da nullpoiinterexpection aliriz
 
     }
 
@@ -26,8 +26,8 @@ public class LibraryLoginPage {
     @FindBy(id = "inputPassword")
     public WebElement inputPassword;
 
-    @FindBy(xpath = "//button[.='Sign in]")
-    public WebElement SignInButton;
+    @FindBy(xpath = "//button[.='Sign in']")
+    public WebElement signInButton;
 
     @FindBy(xpath = "//div[.='This field is required.']/div")
     public WebElement fieldRequiredErrorMessage;
