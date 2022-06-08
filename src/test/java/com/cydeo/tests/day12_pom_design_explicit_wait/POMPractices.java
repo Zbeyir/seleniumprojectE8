@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class POMPractices {
 
-    LibraryLoginPage libraryLoginPage;  // böyle yap (1)
+    LibraryLoginPage libraryLoginPage;  // böyle yap (1)   // yani buray yazarsak
 
     @BeforeMethod
     public void setUp() {
@@ -23,6 +23,13 @@ public class POMPractices {
         // LibraryLoginPage libraryLoginPage = new LibraryLoginPage(); // böyle hepsinde tek tek yazmaya gerek yok
 
         libraryLoginPage = new LibraryLoginPage(); // böyle yap (2)
+        /*
+        bunu buraya degil de yukariya yazarsak  yai before method un icine yazmazsaak
+          ilk test te sikinti olmayacal
+          ama;
+           2. teste sikinti olacak
+           cünkü: close olunca program da kopmle terminate oluyor
+         */
 
 
     }
