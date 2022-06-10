@@ -5,9 +5,13 @@ In this class only general utility methods that are not related to some specific
  */
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class BrowserUtils {
 
@@ -83,5 +87,24 @@ public class BrowserUtils {
         Assert.assertEquals(driver.getTitle(), expectedTitle);
 
     }
+
+
+    //Creating a utility method for ExplicitWait, so we don't have to repeat the lines
+
+    public static void waitForInvisibilityOf(WebElement webElement){
+        Driver.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        wait.until(ExpectedConditions.invisibilityOf(webElement));
+    }
+     /*
+    BU KISIM ÖNEMLI----Bunu Gürhan ile birlikze 13. gün yaptik
+    CÜNKÜ
+    bu kisimi yapmadigimizda hata aliyorduk,
+    cünkü waitler cakisiyor --> ExplicitWait ile implicitlyWait biribirini engelliyor du
+    ya bunun gibi yukariya '0' yaz--> 1-ilk yöntem --> mantikli olan bu yani yukaridaki
+    yada implicitlyWait nerede varsa git oraya '0' yaz --> 2.- yöntem---> bu biraz zor
+    bunun örenegi 13.gün ExplicitWaitPractices class da var ama oradan kopyaladik bunu
+     */
+
 
 }
