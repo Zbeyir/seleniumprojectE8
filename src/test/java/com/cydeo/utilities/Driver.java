@@ -3,6 +3,7 @@ package com.cydeo.utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -14,7 +15,8 @@ public class Driver {
      of this class from outside the clas
      */
 
-    private Driver(){}
+    private Driver() {
+    }
 
     /*
     We make WebDriver private, because we want to close access from
@@ -29,9 +31,9 @@ public class Driver {
     when we call it
      */
 
-    public static WebDriver getDriver(){
+    public static WebDriver getDriver() {
 
-        if (driver == null){
+        if (driver == null) {
 
             /*
             We read browserType from configuration.properties.
@@ -58,10 +60,13 @@ public class Driver {
             switch statement will determine the case, and open the matching browser
              */
 
-            switch (browserType){
+            switch (browserType) {
                 case "chrome":
+                    ChromeOptions options = new ChromeOptions(); //1.adim-- oscar ile .week06.avengersHours(20.dakika da) yaptik
+                    options.setAcceptInsecureCerts(true);  //2. adim-- bu ikis atirin amaci, test ederken önümüze cikan kismi engelleri kaldirmak
+
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
+                    driver = new ChromeDriver(options);//3. adim parentez icine (options) ekledi
                     driver.manage().window().maximize();
                     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
                     break;
@@ -78,8 +83,8 @@ public class Driver {
     }
 
     // This method will make sure our driver value is always null after using quit() method
-    public static void closeDriver(){
-        if (driver != null){
+    public static void closeDriver() {
+        if (driver != null) {
             driver.quit();  // this line will terminate the existing session. value will not even be null
             driver = null;
         }

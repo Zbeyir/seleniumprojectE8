@@ -7,6 +7,10 @@ import com.github.javafaker.Faker;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReviewUtils {
 
@@ -176,6 +180,23 @@ yani concatenation yaptik, String 'ten hatirla haci
 
         return deletedItemPrice;
     }
+
+
+    /**
+     * buna Oscar ile 6.hafta avengers saatinde yaptik
+     * get List of WebElement as parameter and return LIst of String
+     * bu method stsic degil di orasi bos idi ve baska sinif da cagiramadik
+     * ama abstract class da ise static ile method kurarsak bu sefer onu baska sinifta kullanamiyoruz
+     */
+    public static List<String> getElementsText(List<WebElement> inputList) {
+        List<String> list = new ArrayList<>();
+        for (WebElement webElement : inputList) {
+            list.add(webElement.getText());
+        }
+        return list;
+    }
+
+
 
 
 }
